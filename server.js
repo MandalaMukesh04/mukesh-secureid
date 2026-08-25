@@ -2268,20 +2268,11 @@ app.get("/api/test", (req, res) => {
 ======================================== */
 
 if (require.main === module) {
-
     app.listen(PORT, () => {
-
         console.log(
             `Server running at http://localhost:${PORT}`
         );
-
     });
-
 }
-
-
-/* ========================================
-   EXPORT APP FOR VERCEL
-======================================== */
 
 module.exports = app;

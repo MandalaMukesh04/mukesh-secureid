@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SecureID - Choose Method</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="auth-page">
+
+        <div class="auth-card method-card">
+
+            <!-- Back Button -->
+            <a href="login.html" class="back-btn">←</a>
+
+            <!-- Logo -->
+            <div class="secure-logo">
+                <div class="logo-icon">🔐</div>
+            </div>
+
+            <h1>Verify your identity</h1>
+
+            <p class="subtitle">
+                Choose a method to continue
+            </p>
+
+            <!-- Verification Methods -->
+
+            <div class="method-options">
+
+                <!-- Email OTP -->
+                <label class="method-option active">
+
+                    <input
+                        type="radio"
+                        name="verificationMethod"
+                        value="email"
+                        checked
+                    >
+
+                    <div class="method-icon">
+                        ✉️
+                    </div>
+
+                    <div class="method-info">
+                        <strong>Email OTP</strong>
+                        <span>Receive a code on your email</span>
+                    </div>
+
+                    <div class="radio-circle"></div>
+
+                </label>
+
+
+                <!-- SMS OTP -->
+                <label class="method-option">
+
+                    <input
+                        type="radio"
+                        name="verificationMethod"
+                        value="sms"
+                    >
+
+                    <div class="method-icon">
+                        📱
+                    </div>
+
+                    <div class="method-info">
+                        <strong>SMS OTP</strong>
+                        <span>Receive a code on your mobile</span>
+                    </div>
+
+                    <div class="radio-circle"></div>
+
+                </label>
+
+
+                <!-- Authenticator -->
+                <label class="method-option">
+
+                    <input
+                        type="radio"
+                        name="verificationMethod"
+                        value="authenticator"
+                    >
+
+                    <div class="method-icon">
+                        🔐
+                    </div>
+
+                    <div class="method-info">
+                        <strong>Authenticator App</strong>
+                        <span>Use code from authenticator app</span>
+                    </div>
+
+                    <div class="radio-circle"></div>
+
+                </label>
+
+            </div>
+
+            <button id="continueBtn" class="primary-btn">
+                Continue
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="choose-method.js"></script>
+
+</body>
+</html>

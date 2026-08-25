@@ -1,0 +1,1475 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #f5f7fb;
+    color: #1f2937;
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+}
+
+.register-card {
+    width: 100%;
+    max-width: 460px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 35px 32px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.shield {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #3b5bdb, #1c2f9c);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    color: #263a9b;
+}
+
+/* Heading */
+
+#register-screen h2 {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+/* Form */
+
+.input-group {
+    margin-bottom: 17px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: #374151;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    height: 46px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 0 13px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s;
+    background: white;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #3046c9;
+    box-shadow: 0 0 0 3px rgba(48, 70, 201, 0.1);
+}
+
+/* Phone */
+
+.phone-row {
+    display: flex;
+    gap: 8px;
+}
+
+.phone-row select {
+    width: 80px;
+}
+
+.phone-row input {
+    flex: 1;
+}
+
+/* Password */
+
+.password-box {
+    position: relative;
+}
+
+.password-box input {
+    padding-right: 48px;
+}
+
+.eye-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+/* Password Rules */
+
+.password-rules {
+    margin-top: -5px;
+    margin-bottom: 18px;
+}
+
+.password-rules p {
+    font-size: 12px;
+    margin: 5px 0;
+    color: #6b7280;
+}
+
+.password-rules p.valid {
+    color: #16a34a;
+}
+
+/* Terms */
+
+.terms {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.terms input {
+    margin-top: 3px;
+    accent-color: #3046c9;
+}
+
+.terms label {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #6b7280;
+}
+
+.terms a,
+.login-link a {
+    color: #3046c9;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Button */
+
+.primary-button {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #3046c9, #1e36b5);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.primary-button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* Login */
+
+.login-link {
+    text-align: center;
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 18px;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 500px) {
+    .app-container {
+        padding: 15px;
+        align-items: flex-start;
+    }
+
+    .register-card {
+        padding: 28px 20px;
+        border-radius: 15px;
+    }
+}
+.otp-card {
+    text-align: center;
+}
+
+.otp-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 28px 0 18px;
+}
+
+.otp-input {
+    width: 45px;
+    height: 52px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    outline: none;
+}
+
+.otp-input:focus {
+    border-color: #3046c9;
+    box-shadow: 0 0 0 3px rgba(48, 70, 201, 0.1);
+}
+
+.otp-message {
+    min-height: 20px;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.resend-text {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.resend-text button {
+    border: none;
+    background: transparent;
+    color: #3046c9;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* MFA Setup */
+
+.mfa-info {
+    margin: 20px 0;
+}
+
+.qr-placeholder {
+    width: 180px;
+    height: 180px;
+    margin: 20px auto;
+    border: 2px dashed #3046c9;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: #3046c9;
+}
+
+.qr-icon {
+    font-size: 60px;
+    line-height: 1;
+}
+
+.qr-placeholder p {
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.mfa-instruction {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #6b7280;
+    margin-bottom: 18px;
+}
+
+.secret-box {
+    background: #f5f7ff;
+    border: 1px solid #dbe2ff;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 22px;
+}
+
+.secret-box small {
+    display: block;
+    color: #6b7280;
+    margin-bottom: 6px;
+}
+
+.secret-box strong {
+    display: block;
+    word-break: break-all;
+    color: #263a9b;
+    letter-spacing: 1px;
+}
+
+.skip-mfa {
+    margin-top: 18px;
+}
+
+.skip-mfa button {
+    border: none;
+    background: transparent;
+    color: #6b7280;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.skip-mfa button:hover {
+    color: #3046c9;
+}
+
+.qr-placeholder img {
+    width: 160px;
+    height: 160px;
+    display: block;
+}
+
+/* Success Page */
+
+.success-card {
+    text-align: center;
+    max-width: 460px;
+}
+
+.success-icon {
+    width: 75px;
+    height: 75px;
+    margin: 10px auto 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+    color: #16a34a;
+
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.success-card h1 {
+    font-size: 25px;
+    margin-bottom: 14px;
+    color: #1f2937;
+}
+
+.success-message {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+.success-status {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 10px 5px;
+
+    font-size: 14px;
+    color: #374151;
+}
+
+.status-check {
+    width: 23px;
+    height: 23px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+    color: #16a34a;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* ========================================
+   LOGIN PAGE
+======================================== */
+
+body.login-page {
+    min-height: 100vh;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    background: #eef1f7;
+    color: #27364a;
+}
+
+
+/* Main Container */
+
+.login-container {
+    width: 100%;
+    max-width: 460px;
+
+    padding: 20px;
+}
+
+
+/* Login Card */
+
+.login-card {
+    width: 100%;
+
+    background: #ffffff;
+
+    padding: 42px 34px 38px;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 12px 35px
+        rgba(31, 45, 61, 0.12);
+}
+
+
+/* Lock Icon */
+
+.login-icon {
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4c61c7,
+            #2d419d
+        );
+
+    border-radius: 18px;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 8px 20px
+        rgba(48, 67, 163, 0.22);
+}
+
+
+/* Heading */
+
+.login-card h1 {
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    color: #27364a;
+}
+
+
+/* Subtitle */
+
+.login-subtitle {
+    margin-top: 8px;
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    font-size: 15px;
+
+    color: #6b7788;
+}
+
+
+/* Form Group */
+
+.login-card .form-group {
+    margin-bottom: 20px;
+}
+
+
+/* Labels */
+
+.login-card .form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #344054;
+}
+
+
+/* Inputs */
+
+.login-card .form-group input {
+    width: 100%;
+    height: 52px;
+
+    padding: 0 16px;
+
+    border:
+        1px solid #d6dce5;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    color: #27364a;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.login-card .form-group input:focus {
+    border-color: #4054b8;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(64, 84, 184, 0.10);
+}
+
+
+.login-card .form-group input::placeholder {
+    color: #9aa4b2;
+}
+
+
+/* Error Message */
+
+.login-card .error-message {
+    display: none;
+
+    margin-top: -8px;
+    margin-bottom: 15px;
+
+    padding: 10px 12px;
+
+    border-radius: 8px;
+
+    background: #fff1f0;
+
+    color: #d92d20;
+
+    font-size: 13px;
+
+    text-align: center;
+}
+
+
+/* Show error when JavaScript adds content */
+
+.login-card .error-message:not(:empty) {
+    display: block;
+}
+
+
+/* Remember Me + Forgot Password */
+
+.login-card .login-options {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 24px;
+}
+
+
+.login-card .remember-me {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 14px;
+
+    color: #4b5563;
+
+    cursor: pointer;
+}
+
+
+.login-card .remember-me input {
+    width: 16px;
+    height: 16px;
+
+    cursor: pointer;
+}
+
+
+/* Forgot Password */
+
+.login-card .forgot-password {
+    color: #3549b5;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+.login-card .forgot-password:hover {
+    text-decoration: underline;
+}
+
+
+/* Login Button */
+
+.login-card .primary-button {
+    width: 100%;
+    height: 52px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4c61c7,
+            #2d419d
+        );
+
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.login-card .primary-button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 20px
+        rgba(48, 67, 163, 0.25);
+}
+
+
+/* Divider */
+
+.login-card .login-divider {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 26px 0;
+
+    color: #8a94a6;
+
+    font-size: 14px;
+}
+
+
+.login-card .login-divider::before,
+.login-card .login-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #e2e6ec;
+}
+
+
+/* Google Button */
+
+.login-card .google-button {
+    width: 100%;
+    height: 52px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #d6dce5;
+
+    border-radius: 10px;
+
+    color: #344054;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        border-color 0.2s;
+}
+
+
+.login-card .google-button:hover {
+    background: #f8f9fb;
+
+    border-color: #aeb8c8;
+}
+
+
+/* Google Icon */
+
+.google-icon {
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: #4285f4;
+}
+
+
+/* Create Account */
+
+.login-card .create-account-text {
+    margin-top: 26px;
+    margin-bottom: 0;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    color: #6b7280;
+}
+
+
+.login-card .create-account-text a {
+    margin-left: 4px;
+
+    color: #3549b5;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+.login-card .create-account-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   MOBILE RESPONSIVE
+======================================== */
+
+@media (max-width: 500px) {
+
+    body.login-page {
+        align-items: flex-start;
+
+        padding-top: 30px;
+    }
+
+
+    .login-container {
+        padding: 16px;
+    }
+
+
+    .login-card {
+        padding: 34px 24px;
+
+        border-radius: 18px;
+    }
+
+
+    .login-card h1 {
+        font-size: 26px;
+    }
+
+
+    .login-card .login-options {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+}
+
+
+/* ========================================
+   LOGIN VERIFY PAGE
+======================================== */
+
+.verify-page {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef2f8,
+            #e4e9f3
+        );
+
+    color: #27364a;
+}
+
+
+.verify-container {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px 15px;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   VERIFY CARD
+======================================== */
+
+.verify-card {
+    width: 100%;
+    max-width: 460px;
+
+    background: #ffffff;
+
+    padding: 36px 34px 38px;
+
+    border-radius: 20px;
+
+    box-sizing: border-box;
+
+    box-shadow:
+        0 12px 35px
+        rgba(36, 53, 80, 0.12);
+}
+
+
+/* ========================================
+   BACK BUTTON
+======================================== */
+
+.back-button {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    font-size: 24px;
+    font-weight: 500;
+
+    color: #34445c;
+
+    border-radius: 8px;
+
+    margin-bottom: 6px;
+
+    transition:
+        background 0.2s ease;
+}
+
+
+.back-button:hover {
+    background: #f1f3f7;
+}
+
+
+/* ========================================
+   SECURITY ICON
+======================================== */
+
+.verify-card .icon-circle {
+    width: 68px;
+    height: 68px;
+
+    margin:
+        0 auto
+        18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e9eeff;
+
+    font-size: 30px;
+}
+
+
+/* ========================================
+   HEADING
+======================================== */
+
+.verify-card h1 {
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    color: #27364a;
+}
+
+
+.verify-card .subtitle {
+    margin:
+        10px
+        0
+        30px;
+
+    text-align: center;
+
+    font-size: 15px;
+
+    color: #69778b;
+}
+
+
+/* ========================================
+   VERIFICATION OPTIONS
+======================================== */
+
+.verification-option {
+    width: 100%;
+    min-height: 78px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding:
+        14px
+        16px;
+
+    margin-bottom: 14px;
+
+    background: #ffffff;
+
+    border:
+        1px solid
+        #d9e0ea;
+
+    border-radius: 12px;
+
+    box-sizing: border-box;
+
+    cursor: pointer;
+
+    transition:
+        all 0.2s ease;
+}
+
+
+/* Hover */
+
+.verification-option:hover {
+    border-color: #465cc8;
+
+    background: #f8f9ff;
+}
+
+
+/* Selected */
+
+.verification-option.selected {
+    border:
+        2px solid
+        #354bb7;
+
+    background: #f5f7ff;
+
+    box-shadow:
+        0 4px 12px
+        rgba(53, 75, 183, 0.10);
+}
+
+
+/* ========================================
+   OPTION ICON
+======================================== */
+
+.option-icon {
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #edf1ff;
+
+    font-size: 21px;
+}
+
+
+/* ========================================
+   OPTION TEXT
+======================================== */
+
+.option-content {
+    flex: 1;
+
+    text-align: left;
+}
+
+
+.option-content h3 {
+    margin:
+        0
+        0
+        5px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: #2d3b50;
+}
+
+
+.option-content p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #7a8798;
+}
+
+
+/* ========================================
+   RADIO BUTTON
+======================================== */
+
+.radio-circle {
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    border:
+        2px solid
+        #9aa6b5;
+
+    border-radius: 50%;
+
+    box-sizing: border-box;
+
+    transition:
+        all 0.2s ease;
+}
+
+
+/* Active Radio */
+
+.verification-option.selected
+.radio-circle {
+    border:
+        6px solid
+        #354bb7;
+}
+
+
+/* ========================================
+   CONTINUE BUTTON
+======================================== */
+
+.verify-card
+#continue-button {
+    width: 100%;
+    height: 52px;
+
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #465cc8,
+            #283c9f
+        );
+
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        all 0.2s ease;
+}
+
+
+/* Hover */
+
+.verify-card
+#continue-button:hover:not(:disabled) {
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 7px 16px
+        rgba(52, 73, 180, 0.25);
+}
+
+
+/* Disabled */
+
+.verify-card
+#continue-button:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+    box-shadow: none;
+
+    transform: none;
+}
+
+
+/* ========================================
+   MOBILE RESPONSIVE
+======================================== */
+
+@media (max-width: 500px) {
+
+    .verify-container {
+        padding:
+            20px
+            14px;
+    }
+
+
+    .verify-card {
+        padding:
+            28px
+            20px
+            30px;
+
+        border-radius: 16px;
+    }
+
+
+    .verify-card h1 {
+        font-size: 26px;
+    }
+
+
+    .verification-option {
+        min-height: 74px;
+
+        padding:
+            12px
+            14px;
+    }
+
+}
+
+/* ========================================
+   DASHBOARD PAGE
+======================================== */
+
+.dashboard-page {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #eef2ff
+        );
+}
+
+
+/* ========================================
+   DASHBOARD CONTAINER
+======================================== */
+
+.dashboard-container {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 20px;
+}
+
+
+/* ========================================
+   DASHBOARD CARD
+======================================== */
+
+.dashboard-card {
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    padding: 45px 40px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.08);
+
+    border:
+        1px solid #e5e7eb;
+}
+
+
+/* ========================================
+   SUCCESS ICON
+======================================== */
+
+.dashboard-card .icon-circle {
+    width: 70px;
+    height: 70px;
+
+    margin:
+        0 auto 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+
+    color: #16a34a;
+
+    font-size: 35px;
+    font-weight: bold;
+}
+
+
+/* ========================================
+   HEADING
+======================================== */
+
+.dashboard-card h1 {
+    margin: 0 0 12px;
+
+    font-size: 30px;
+
+    color: #1f2937;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   SUBTITLE
+======================================== */
+
+.dashboard-card .subtitle {
+    margin-bottom: 30px;
+
+    color: #6b7280;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   SUCCESS MESSAGE BOX
+======================================== */
+
+.success-message {
+    background: #f0fdf4;
+
+    border:
+        1px solid #bbf7d0;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    margin-bottom: 30px;
+
+    text-align: left;
+}
+
+
+.success-message h3 {
+    margin:
+        0 0 8px;
+
+    color: #15803d;
+
+    font-size: 18px;
+}
+
+
+.success-message p {
+    margin: 0;
+
+    color: #4b5563;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   LOGOUT BUTTON
+======================================== */
+
+.dashboard-card .primary-button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.dashboard-card .primary-button:hover {
+    background: #1d4ed8;
+
+    transform:
+        translateY(-1px);
+}
+
+
+.dashboard-card .primary-button:active {
+    transform:
+        translateY(0);
+}
+
+
+/* ========================================
+   MOBILE RESPONSIVE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .dashboard-container {
+        padding: 15px;
+    }
+
+    .dashboard-card {
+        padding:
+            35px 25px;
+    }
+
+    .dashboard-card h1 {
+        font-size: 26px;
+    }
+
+}

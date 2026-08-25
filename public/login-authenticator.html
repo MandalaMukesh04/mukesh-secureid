@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SecureID - Authenticator Verification</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body class="verify-page">
+
+    <div class="verify-container">
+
+        <div class="verify-card">
+
+            <!-- Back Button -->
+            <a
+                href="login-verify.html"
+                class="back-button"
+            >
+                ←
+            </a>
+
+
+            <!-- Authenticator Icon -->
+            <div class="icon-circle">
+                🔐
+            </div>
+
+
+            <!-- Heading -->
+            <h1>
+                Authenticator verification
+            </h1>
+
+            <p class="subtitle">
+                Enter the 6-digit code from your authenticator app
+            </p>
+
+
+            <!-- Authenticator Form -->
+            <form id="login-authenticator-form">
+
+                <div class="otp-container">
+
+                    <input
+                        type="text"
+                        maxlength="1"
+                        class="otp-input"
+                        inputmode="numeric"
+                        autocomplete="one-time-code"
+                    >
+
+                    <input
+                        type="text"
+                        maxlength="1"
+                        class="otp-input"
+                        inputmode="numeric"
+                    >
+
+                    <input
+                        type="text"
+                        maxlength="1"
+                        class="otp-input"
+                        inputmode="numeric"
+                    >
+
+                    <input
+                        type="text"
+                        maxlength="1"
+                        class="otp-input"
+                        inputmode="numeric"
+                    >
+
+                    <input
+                        type="text"
+                        maxlength="1"
+                        class="otp-input"
+                        inputmode="numeric"
+                    >
+
+                    <input
+                        type="text"
+                        maxlength="1"
+                        class="otp-input"
+                        inputmode="numeric"
+                    >
+
+                </div>
+
+
+                <!-- Message -->
+                <p
+                    id="authenticator-message"
+                    class="otp-message"
+                ></p>
+
+
+                <!-- Verify Button -->
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Verify
+                </button>
+
+            </form>
+
+
+            <p class="resend-text">
+                Open your authenticator app and enter the
+                current 6-digit code.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script src="login-authenticator.js"></script>
+
+</body>
+
+</html>

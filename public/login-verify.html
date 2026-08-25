@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SecureID - Verify Identity</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body class="verify-page">
+
+    <div class="verify-container">
+
+        <div class="verify-card">
+
+
+            <!-- Back Button -->
+            <a
+                href="login.html"
+                class="back-button"
+            >
+                ←
+            </a>
+
+
+            <!-- Security Icon -->
+            <div class="icon-circle">
+                🛡️
+            </div>
+
+
+            <!-- Heading -->
+            <h1>
+                Verify your identity
+            </h1>
+
+            <p class="subtitle">
+                Choose a method to continue
+            </p>
+
+
+            <!-- Email OTP -->
+            <div
+                class="verification-option"
+                data-method="email"
+            >
+
+                <div class="option-icon">
+                    ✉️
+                </div>
+
+                <div class="option-content">
+
+                    <h3>
+                        Email OTP
+                    </h3>
+
+                    <p>
+                        Receive a code on your email
+                    </p>
+
+                </div>
+
+                <div class="radio-circle"></div>
+
+            </div>
+
+
+            <!-- SMS OTP -->
+            <div
+                class="verification-option"
+                data-method="mobile"
+            >
+
+                <div class="option-icon">
+                    📱
+                </div>
+
+                <div class="option-content">
+
+                    <h3>
+                        SMS OTP
+                    </h3>
+
+                    <p>
+                        Receive a code on your mobile
+                    </p>
+
+                </div>
+
+                <div class="radio-circle"></div>
+
+            </div>
+
+
+            <!-- Authenticator App -->
+            <div
+                class="verification-option"
+                data-method="authenticator"
+            >
+
+                <div class="option-icon">
+                    🔐
+                </div>
+
+                <div class="option-content">
+
+                    <h3>
+                        Authenticator App
+                    </h3>
+
+                    <p>
+                        Use code from authenticator app
+                    </p>
+
+                </div>
+
+                <div class="radio-circle"></div>
+
+            </div>
+
+
+            <!-- Continue Button -->
+            <button
+                id="continue-button"
+                class="primary-button"
+                type="button"
+                disabled
+            >
+                Continue
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+    <script src="login-verify.js"></script>
+
+</body>
+
+</html>

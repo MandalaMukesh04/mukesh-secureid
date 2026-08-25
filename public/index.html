@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SecureID - Create Account</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <div class="register-card">
+
+            <!-- Logo -->
+            <div class="logo">
+                <div class="shield">🔐</div>
+                <h1>SecureID</h1>
+            </div>
+
+            <!-- Registration form -->
+            <div id="register-screen">
+
+                <h2>Create your account</h2>
+                <p class="subtitle">Let's get you started</p>
+
+                <form id="register-form">
+
+                    <!-- Full Name -->
+                    <div class="input-group">
+                        <label for="fullName">Full Name</label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            placeholder="Priya Sharma"
+                            required
+                        >
+                    </div>
+
+                    <!-- Email -->
+                    <div class="input-group">
+                        <label for="email">Email</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="priya.sharma@email.com"
+                            required
+                        >
+                    </div>
+
+                    <!-- Mobile -->
+                    <div class="input-group">
+                        <label for="phone">Mobile Number</label>
+
+                        <div class="phone-row">
+
+                            <select id="countryCode">
+                                <option value="+91">+91</option>
+                            </select>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="98765 43210"
+                                required
+                            >
+
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="input-group">
+                        <label for="password">Password</label>
+
+                        <div class="password-box">
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="toggle-password"
+                                class="eye-button"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Password rules -->
+                    <div class="password-rules">
+
+                        <p id="rule-length">
+                            ○ At least 8 characters
+                        </p>
+
+                        <p id="rule-upper">
+                            ○ 1 uppercase letter
+                        </p>
+
+                        <p id="rule-number">
+                            ○ 1 number
+                        </p>
+
+                        <p id="rule-special">
+                            ○ 1 special character
+                        </p>
+
+                    </div>
+
+                    <!-- Terms -->
+                    <div class="terms">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            required
+                        >
+
+                        <label for="terms">
+                            I agree to the
+                            <a href="#">Terms & Conditions</a>
+                            and
+                            <a href="#">Privacy Policy</a>
+                        </label>
+
+                    </div>
+
+                    <!-- Button -->
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Create Account
+                    </button>
+
+                </form>
+
+                <p class="login-link">
+                    Already have an account?
+                    <a href="login.html">Login</a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

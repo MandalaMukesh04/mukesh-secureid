@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SecureID - Login</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="login-page">
+
+    <div class="login-container">
+
+        <div class="login-card">
+
+            <!-- SecureID Icon -->
+
+            <div class="login-icon">
+                🔐
+            </div>
+
+
+            <!-- Heading -->
+
+            <h1>Welcome back!</h1>
+
+            <p class="login-subtitle">
+                Login to your account
+            </p>
+
+
+            <!-- Login Form -->
+
+            <form id="login-form">
+
+                <!-- Email or Username -->
+
+                <div class="form-group">
+
+                    <label for="login-email">
+                        Email or Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="login-email"
+                        placeholder="Enter your email or username"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Password -->
+
+                <div class="form-group">
+
+                    <label for="login-password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="login-password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Error Message -->
+
+                <div
+                    id="login-error"
+                    class="error-message"
+                ></div>
+
+
+                <!-- Remember Me + Forgot Password -->
+
+                <div class="login-options">
+
+                    <label class="remember-me">
+
+                        <input
+                            type="checkbox"
+                            id="remember-me"
+                        >
+
+                        <span>
+                            Remember me
+                        </span>
+
+                    </label>
+
+
+                    <a
+                        href="#"
+                        class="forgot-password"
+                    >
+                        Forgot password?
+                    </a>
+
+                </div>
+
+
+                <!-- Login Button -->
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Login
+                </button>
+
+            </form>
+
+
+            <!-- OR Divider -->
+
+            <div class="login-divider">
+
+                <span>
+                    or
+                </span>
+
+            </div>
+
+
+            <!-- Google Login -->
+
+            <button
+                type="button"
+                class="google-button"
+            >
+                <span class="google-icon">G</span>
+
+                Continue with Google
+            </button>
+
+
+            <!-- Create Account -->
+
+            <p class="create-account-text">
+
+                New here?
+
+                <a href="index.html">
+                    Create an account
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script src="login.js"></script>
+
+</body>
+
+</html>

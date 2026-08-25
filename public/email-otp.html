@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureID - Verify Email</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <div class="register-card otp-card">
+
+            <div class="logo">
+                <div class="shield">🔐</div>
+                <h1>SecureID</h1>
+            </div>
+
+            <h2>Verify your email</h2>
+
+            <p class="subtitle">
+                We've sent a 6-digit verification code to your email.
+            </p>
+
+            <form id="email-otp-form">
+
+                <div class="otp-container">
+                    <input type="text" maxlength="1" class="otp-input">
+                    <input type="text" maxlength="1" class="otp-input">
+                    <input type="text" maxlength="1" class="otp-input">
+                    <input type="text" maxlength="1" class="otp-input">
+                    <input type="text" maxlength="1" class="otp-input">
+                    <input type="text" maxlength="1" class="otp-input">
+                </div>
+
+                <p id="otp-message" class="otp-message"></p>
+
+                <button type="submit" class="primary-button">
+                    Verify Email
+                </button>
+
+            </form>
+
+            <p class="resend-text">
+                Didn't receive the code?
+                <button id="resend-email-otp" type="button">
+                    Resend OTP
+                </button>
+            </p>
+
+        </div>
+    </div>
+
+    <script src="email-otp.js"></script>
+
+</body>
+</html>

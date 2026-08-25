@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SecureID - Set Up MFA</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <div class="register-card otp-card">
+
+            <div class="logo">
+                <div class="shield">🔐</div>
+                <h1>SecureID</h1>
+            </div>
+
+            <h2>Secure your account</h2>
+
+            <p class="subtitle">
+                Set up multi-factor authentication for additional security.
+            </p>
+
+            <div class="mfa-info">
+
+                <div class="qr-placeholder">
+    <img
+        id="mfa-qr"
+        src=""
+        alt="Authenticator QR Code"
+    >
+</div>
+
+                <p class="mfa-instruction">
+                    Open Google Authenticator, Microsoft Authenticator,
+                    or another compatible app and scan this code.
+                </p>
+
+                <div class="secret-box">
+                    <small>Or enter this setup key manually:</small>
+                    <strong id="mfa-secret">Loading...</strong>
+                </div>
+
+            </div>
+
+            <form id="mfa-form">
+
+                <div class="input-group">
+
+                    <label for="mfa-code">
+                        Enter the 6-digit verification code
+                    </label>
+
+                    <input
+                        type="text"
+                        id="mfa-code"
+                        maxlength="6"
+                        inputmode="numeric"
+                        placeholder="123456"
+                        required
+                    >
+
+                </div>
+
+                <p id="mfa-message" class="otp-message"></p>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Enable MFA
+                </button>
+
+            </form>
+
+            <p class="skip-mfa">
+                <button
+                    id="skip-mfa"
+                    type="button"
+                >
+                    Skip for now
+                </button>
+            </p>
+
+        </div>
+
+    </div>
+
+    <script src="mfa-setup.js"></script>
+
+</body>
+</html>

@@ -1,20 +1,24 @@
 # 🔐 SecureID – Multi-Factor Authentication Web Application
 
-SecureID is a full-stack authentication web application developed to demonstrate a secure user authentication workflow using multiple verification methods.
+SecureID is a full-stack authentication web application developed to demonstrate a secure and modern user authentication workflow using multiple verification methods.
 
 The application allows users to register, verify their identity using Email OTP and Mobile OTP, optionally configure an Authenticator App for Multi-Factor Authentication (MFA), and securely log in using different verification methods.
 
-This project was developed as an extended implementation of an authentication assignment. The application goes beyond a basic login and registration system by implementing OTP verification, password hashing, session-based authentication, MFA using TOTP, QR code generation, OTP expiration, retry limits, resend functionality, and protected routes.
+This project was developed as an extended implementation of an authentication assignment. Instead of building only a basic login and registration system, SecureID implements multiple security layers including OTP verification, password hashing, session-based authentication, MFA using TOTP, QR code generation, OTP expiration, retry limits, resend functionality, and protected routes.
 
 ---
 
-## 🚀 Live Project
+# 🚀 Live Project
 
-https://tough-cougars-sit.loca.lt/login.html
+The application was demonstrated using LocalTunnel to expose the locally running Node.js server through a public URL.
 
-The application was demonstrated using LocalTunnel to expose the local Node.js server through a public URL.
+Example:
 
-> Note: The LocalTunnel URL is temporary and only works while the local server and tunnel are running.
+```text
+https://tough-cougars-sit.loca.lt
+````
+
+> Note: LocalTunnel URLs are temporary and work only while the local Node.js server and LocalTunnel process are running.
 
 ---
 
@@ -33,33 +37,39 @@ The application follows a multi-step authentication process:
 7. Protected Dashboard Access
 8. Secure Logout
 
-The application demonstrates how modern authentication systems can implement multiple layers of identity verification instead of relying only on an email and password.
+The project demonstrates how modern authentication systems can implement multiple layers of identity verification instead of relying only on an email and password.
 
 ---
 
 # ✨ Features
 
-## 🔑 User Registration
+## 👤 User Registration
 
 Users can create an account by providing:
 
-- Full Name
-- Email Address
-- Mobile Number
-- Password
+* Full Name
+* Email Address
+* Mobile Number
+* Password
 
-The system validates the registration details before creating the account.
+The system validates all required registration details before creating the account.
 
-Password requirements include:
+### Password Requirements
 
-- Minimum 8 characters
-- At least one uppercase letter
-- At least one number
-- At least one special character
+The password must contain:
+
+* Minimum 8 characters
+* At least one uppercase letter
+* At least one number
+* At least one special character
 
 Passwords are never stored in plain text.
 
-They are securely hashed using **bcrypt**.
+Passwords are securely hashed using:
+
+```text
+bcrypt
+```
 
 ---
 
@@ -67,18 +77,18 @@ They are securely hashed using **bcrypt**.
 
 After registration, the application generates a secure 6-digit Email OTP.
 
-The OTP includes:
+The Email OTP includes:
 
-- Secure random generation
-- Password hashing before storage
-- 5-minute expiration
-- Maximum attempt limit
-- One-time usage
-- Resend OTP functionality
+* Secure random OTP generation
+* OTP hashing before storage
+* 5-minute expiration
+* Maximum verification attempt limit
+* One-time usage
+* Resend OTP functionality
 
 The OTP verification system prevents unlimited attempts and invalidates the OTP after successful verification.
 
-For the current project implementation, the generated OTP is displayed in the server console for demonstration purposes.
+For the current demonstration version, generated OTPs are displayed in the Node.js server console.
 
 ---
 
@@ -88,41 +98,41 @@ After successful Email verification, the system generates a Mobile OTP.
 
 The Mobile OTP system includes:
 
-- 6-digit OTP generation
-- OTP hashing
-- Expiration handling
-- Maximum verification attempts
-- OTP resend functionality
-- One-time usage protection
+* Secure 6-digit OTP generation
+* OTP hashing
+* 5-minute expiration
+* Maximum verification attempts
+* OTP resend functionality
+* One-time usage protection
 
-The mobile verification status is stored for the user.
+After successful verification, the user's mobile verification status is updated.
 
-For demonstration purposes, the generated Mobile OTP is displayed in the server console.
+For demonstration purposes, generated Mobile OTPs are displayed in the server console.
 
 ---
 
-# 🔐 Multi-Factor Authentication (MFA)
+# 🔐 Multi-Factor Authentication
 
 SecureID supports Authenticator App based Multi-Factor Authentication.
 
 The application uses:
 
-- Time-Based One-Time Passwords (TOTP)
-- Speakeasy
-- QR Code generation
+* Time-Based One-Time Passwords
+* Speakeasy
+* QR Code generation
 
 During MFA setup:
 
-1. A unique secret key is generated.
+1. A unique MFA secret is generated.
 2. A QR code is generated.
 3. The user scans the QR code using an Authenticator App.
-4. The user enters the generated 6-digit code.
+4. The user enters the generated 6-digit authentication code.
 5. The system verifies the code.
 6. MFA is enabled for the account.
 
-The MFA secret is stored only after successful verification.
+The MFA secret is permanently stored only after successful verification.
 
-Users can also skip MFA setup.
+Users can also choose to skip MFA setup.
 
 ---
 
@@ -132,17 +142,17 @@ After entering a valid email and password, users can choose from multiple verifi
 
 Supported methods include:
 
-### 📧 Email OTP
+## 📧 Email OTP
 
 The system generates a login-specific Email OTP.
 
-### 📱 Mobile OTP
+## 📱 Mobile OTP
 
 The system generates a login-specific Mobile OTP.
 
-### 🔐 Authenticator App
+## 🔐 Authenticator App
 
-If MFA is enabled for the account, users can verify their identity using a TOTP code generated by their Authenticator App.
+If MFA is enabled for the account, users can verify their identity using a Time-Based One-Time Password generated by their Authenticator App.
 
 Each login verification method has its own validation process.
 
@@ -150,93 +160,157 @@ Each login verification method has its own validation process.
 
 # 🛡️ Security Features
 
-SecureID implements several security mechanisms.
+SecureID implements multiple security mechanisms.
 
-### Password Hashing
+## 🔒 Password Hashing
 
 Passwords are hashed using:
 
+```text
+bcrypt
+```
 
-#  OTP Hashing
+The original password is not stored directly.
+
+During login, the entered password is compared with the stored bcrypt hash.
+
+---
+
+## 🔢 OTP Hashing
 
 Generated OTPs are also hashed before being stored.
 
 The system compares the user-entered OTP with the stored hash.
 
-# OTP Expiration
+This prevents OTP values from being directly stored in plain text.
 
-Each OTP expires after: 5 minutes
+---
+
+## ⏳ OTP Expiration
+
+Each OTP expires after:
+
+```text
+5 minutes
+```
 
 Expired OTPs cannot be used.
 
-# Maximum Verification Attempts
+---
+
+## 🚫 Maximum Verification Attempts
 
 Each OTP allows a limited number of verification attempts.
 
-After reaching the maximum limit, verification is blocked.
+The maximum number of attempts is:
 
-# One-Time OTP Usage
+```text
+5
+```
+
+After reaching the limit, verification is blocked.
+
+---
+
+## 🔁 One-Time OTP Usage
 
 After successful verification:
 
-used = true
+```javascript
+challenge.used = true;
+```
 
 The OTP cannot be reused.
 
-Session-Based Authentication
+---
+
+## 🍪 Session-Based Authentication
 
 The application uses:
 
+```text
 express-session
+```
 
 The session stores important authentication information such as:
 
-User ID
-Email verification challenge
-Mobile verification challenge
-Login verification challenge
-MFA temporary secret
-Login verification status
-Protected Dashboard
+* User ID
+* Email verification challenge ID
+* Mobile verification challenge ID
+* Login verification challenge ID
+* Selected login verification method
+* Temporary MFA secret
+* Login verification status
 
-The dashboard is protected using an authentication check.
+---
+
+## 🛡️ Protected Dashboard
+
+The dashboard is protected using authentication checks.
 
 The backend verifies:
 
+```javascript
 req.session.userId
+```
 
 and:
 
+```javascript
 req.session.loginVerified
+```
 
-Users who are not fully authenticated cannot access the protected application dashboard.
+Users who are not fully authenticated cannot access the protected dashboard.
 
-🧰 Technologies Used
-Backend
-Node.js
-Express.js
-Authentication & Security
-bcrypt
-express-session
-Speakeasy
-JSON Web Token package
-Crypto module
-MFA
-Speakeasy
-QRCode
-Frontend
-HTML
-CSS
-JavaScript
-Development Tools
-Nodemon
-dotenv
-Public Access / Demonstration
-LocalTunnel
-📂 Project Structure
+---
+
+# 🧰 Technologies Used
+
+## Backend
+
+* Node.js
+* Express.js
+
+## Authentication and Security
+
+* bcrypt
+* express-session
+* Speakeasy
+* Crypto module
+* dotenv
+
+## Multi-Factor Authentication
+
+* Speakeasy
+* TOTP
+* QRCode
+
+## Frontend
+
+* HTML5
+* CSS3
+* JavaScript
+
+## Development Tools
+
+* Nodemon
+* npm
+* Git
+* GitHub
+
+## Public Demonstration
+
+* LocalTunnel
+
+---
+
+# 📂 Project Structure
+
+```text
 mukesh-secureid
 │
 ├── public
+│   │
 │   ├── index.html
 │   ├── app.js
 │   ├── style.css
@@ -284,298 +358,413 @@ mukesh-secureid
 ├── vercel.json
 ├── .gitignore
 └── README.md
-🔄 Application Workflow
-Step 1: User Registration
+```
+
+---
+
+# 🔄 Application Workflow
+
+## Step 1: User Registration
 
 The user creates an account by entering:
 
-Full Name
-Email
-Mobile Number
-Password
+* Full Name
+* Email
+* Mobile Number
+* Password
 
 The password is validated and hashed using bcrypt.
 
-The user information is stored in the application's current JSON-based storage.
+The user information is stored in the current JSON-based application storage.
 
-Step 2: Email Verification
+---
+
+## Step 2: Email Verification
 
 A secure 6-digit Email OTP is generated.
 
 The OTP:
 
-Is hashed
-Expires after 5 minutes
-Allows limited attempts
-Can only be used once
+* Is hashed
+* Expires after 5 minutes
+* Allows limited verification attempts
+* Can only be used once
+* Can be resent
 
 After successful verification:
 
-emailVerified = true
-Step 3: Mobile Verification
+```javascript
+emailVerified = true;
+```
+
+---
+
+## Step 3: Mobile Verification
 
 A Mobile OTP is generated after successful Email verification.
 
+The Mobile OTP also includes:
+
+* Hashing
+* Expiration
+* Attempt limits
+* Resend functionality
+* One-time usage
+
 After successful verification:
 
-mobileVerified = true
-Step 4: MFA Setup
+```javascript
+mobileVerified = true;
+```
+
+---
+
+## Step 4: MFA Setup
 
 The user can configure an Authenticator App.
 
 The system:
 
-Generates a TOTP secret.
-Creates a QR code.
-Allows the user to scan the QR code.
-Verifies the generated 6-digit code.
-Enables MFA after successful verification.
+1. Generates a TOTP secret.
+2. Creates a QR code.
+3. Allows the user to scan the QR code.
+4. Verifies the generated 6-digit code.
+5. Enables MFA after successful verification.
 
-If successful:
+After successful verification:
 
-mfaEnabled = true
+```javascript
+mfaEnabled = true;
+```
 
 The user can also skip MFA setup.
 
-Step 5: Login
+---
+
+## Step 5: Login
 
 The user logs in using:
 
-Email
-Password
+* Email
+* Password
 
 The entered password is compared with the bcrypt hashed password.
 
-If the credentials are correct, the login verification process begins.
+If the credentials are correct, the multi-step login verification process begins.
 
-Step 6: Choose Verification Method
+---
+
+## Step 6: Choose Verification Method
 
 The user can choose one of the available authentication methods:
 
-Email OTP
-Mobile OTP
-Authenticator App
+* Email OTP
+* Mobile OTP
+* Authenticator App
 
 The system processes the selected verification method.
 
-Step 7: Complete Verification
+---
+
+## Step 7: Complete Login Verification
 
 The user completes the selected verification process.
 
 After successful verification:
 
-req.session.loginVerified = true
+```javascript
+req.session.loginVerified = true;
+```
 
 The user can now access the protected dashboard.
 
-Step 8: Dashboard
+---
 
-The dashboard checks whether the user has:
+## Step 8: Protected Dashboard
 
-An active session
-A valid user ID
-Completed login verification
+The dashboard verifies whether the user has:
 
-Unauthorized users cannot access the dashboard.
+* An active session
+* A valid user ID
+* Completed login verification
 
-Step 9: Logout
+Unauthorized users are blocked from accessing protected application functionality.
+
+---
+
+## Step 9: Secure Logout
 
 The logout process destroys the active session.
 
 The session cookie is cleared and the user is securely logged out.
 
-🖥️ Running the Project Locally
-Clone the Repository
+---
+
+# 🧪 API Endpoints
+
+## Registration
+
+```text
+POST /api/register
+```
+
+---
+
+## Email Verification
+
+```text
+POST /api/verify-email-otp
+POST /api/send-email-otp
+```
+
+---
+
+## Mobile Verification
+
+```text
+POST /api/verify-sms-otp
+POST /api/send-sms-otp
+```
+
+---
+
+## MFA
+
+```text
+GET  /api/mfa/setup
+POST /api/mfa/verify
+POST /api/mfa/skip
+```
+
+---
+
+## Login
+
+```text
+POST /api/login
+```
+
+---
+
+## Login Verification
+
+```text
+POST /api/login/send-verification
+
+POST /api/login/verify-email-otp
+POST /api/login/resend-email-otp
+
+POST /api/login/verify-mobile-otp
+POST /api/login/resend-mobile-otp
+
+POST /api/login/verify-authenticator
+```
+
+---
+
+## Authentication Check
+
+```text
+GET /api/check-auth
+```
+
+---
+
+## Logout
+
+```text
+POST /api/logout
+```
+
+---
+
+## Backend Test
+
+```text
+GET /api/test
+```
+
+---
+
+# 🖥️ Running the Project Locally
+
+## 1. Clone the Repository
+
+```bash
 git clone https://github.com/MandalaMukesh04/mukesh-secureid.git
+```
 
-Move into the project directory:
+---
 
+## 2. Move Into the Project Directory
+
+```bash
 cd mukesh-secureid
-Install Dependencies
-npm install
-Create Environment Variables
+```
 
-Create a .env file in the root directory.
+---
+
+## 3. Install Dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 4. Create Environment Variables
+
+Create a `.env` file in the root directory.
 
 Example:
 
+```env
 SESSION_SECRET=your_secure_random_secret
 NODE_ENV=development
+```
 
-The .env file should not be uploaded to GitHub.
+The `.env` file should not be uploaded to GitHub.
 
-Start the Application
+---
 
-Run:
+## 5. Start the Application
 
+```bash
 npm start
+```
 
-The application will start on:
+The application will start at:
 
+```text
 http://localhost:3000
-🌐 Sharing the Local Application
+```
+
+---
+
+# 🌐 Sharing the Local Application
 
 The application can be exposed publicly using LocalTunnel.
 
 First, start the application:
 
+```bash
 npm start
+```
 
-Then, in another terminal:
+Then, open another terminal inside the project directory and run:
 
+```bash
 npx localtunnel --port 3000
+```
 
 LocalTunnel will generate a temporary public URL.
 
 Example:
 
+```text
 https://example.loca.lt
+```
 
-This allows the locally running SecureID application to be accessed through the internet while the server and tunnel remain active.
+This allows the locally running SecureID application to be accessed through the internet while the Node.js server and LocalTunnel process remain active.
 
-⚠️ Current Project Storage Implementation
+---
+
+# 💾 Current Project Storage Implementation
 
 The current version of SecureID uses JSON files for application data storage.
 
-The files are:
+The storage files are:
 
+```text
 data/users.json
 data/challenges.json
+```
 
 These files store:
 
-User accounts
-Password hashes
-Verification status
-OTP challenges
-OTP hashes
-OTP expiration data
-Verification attempt counts
-MFA configuration
+* User accounts
+* Password hashes
+* Email verification status
+* Mobile verification status
+* OTP challenges
+* OTP hashes
+* OTP expiration data
+* Verification attempt counts
+* MFA configuration
 
 This approach was used for the current project implementation and demonstration.
 
 The application does not currently use a dedicated database.
 
-⚠️ Vercel Deployment Consideration
+---
+
+# ⚠️ Vercel Deployment Consideration
 
 The application was tested for deployment on Vercel.
 
-The frontend and Express backend can be deployed as serverless functions, but the current application architecture uses file-based storage with:
+The frontend and Express backend can run in a serverless environment. However, the current project architecture uses file-based storage through:
 
+```javascript
 fs.readFileSync()
+```
 
 and:
 
+```javascript
 fs.writeFileSync()
+```
 
 for user and OTP data.
 
-Serverless platforms such as Vercel do not provide persistent writable local storage for application data in the same way as a traditional Node.js server.
+Serverless platforms such as Vercel do not provide persistent writable local storage in the same way as a traditional continuously running Node.js server.
 
-Because of this architecture, the JSON file storage approach is suitable for local development and demonstration but is not reliable for persistent production deployment.
+Because of this architecture, the JSON-based storage approach is suitable for:
+
+* Local development
+* Project demonstration
+* Authentication workflow testing
+* Academic implementation
+
+However, it is not suitable for persistent production data storage.
 
 The application itself runs successfully in the local Node.js environment.
 
-For the submitted demonstration, LocalTunnel was used to securely expose the locally running application through a temporary public URL.
+For demonstration purposes, LocalTunnel was used to expose the locally running application through a temporary public URL.
 
-🧪 API Endpoints
-Registration
-POST /api/register
-Email Verification
-POST /api/verify-email-otp
-POST /api/send-email-otp
-Mobile Verification
-POST /api/verify-sms-otp
-POST /api/send-sms-otp
-MFA
-GET /api/mfa/setup
-POST /api/mfa/verify
-POST /api/mfa/skip
-Login
-POST /api/login
-Login Verification
-POST /api/login/send-verification
-POST /api/login/verify-email-otp
-POST /api/login/resend-email-otp
-POST /api/login/verify-mobile-otp
-POST /api/login/resend-mobile-otp
-POST /api/login/verify-authenticator
-Authentication
-GET /api/check-auth
-Logout
-POST /api/logout
-Backend Test
-GET /api/test
-🎯 Assignment Implementation
 
-The project was developed as an authentication and identity verification application.
+---
 
-Instead of implementing only a basic login system, the project includes multiple security layers.
+# 👨‍💻 Developer
 
-The implementation includes:
-
-User Registration
-Password Validation
-Password Hashing
-Email OTP Verification
-Mobile OTP Verification
-OTP Expiration
-OTP Attempt Limits
-OTP Resend Functionality
-One-Time OTP Usage
-Session Management
-Multi-Factor Authentication
-TOTP Authentication
-QR Code Generation
-Multiple Login Verification Methods
-Protected Routes
-Authentication Validation
-Secure Logout
-
-The project therefore demonstrates a complete multi-step authentication workflow rather than a simple username and password login system.
-
-🧠 Key Learning Outcomes
-
-Through the development of SecureID, the following concepts were implemented and explored:
-
-Full-Stack Web Development
-REST API Development
-Express.js Routing
-Authentication Workflows
-Password Security
-bcrypt Hashing
-OTP Generation
-OTP Verification
-OTP Expiration
-Session Management
-Multi-Factor Authentication
-Time-Based One-Time Passwords
-QR Code Generation
-Protected Routes
-Error Handling
-Client-Server Communication
-Local Application Deployment
-Git and GitHub Version Control
-👨‍💻 Developer
-
-Mukesh Mandala
+**Mukesh Mandala**
 
 B.Tech – Computer Science and Engineering
 Specialization: Data Science
 
-GitHub: MandalaMukesh04
+GitHub:
 
-Project Repository: SecureID Repository
+[MandalaMukesh04](https://github.com/MandalaMukesh04?utm_source=chatgpt.com)
 
-📜 License
+Project Repository:
 
-This project is created for educational, academic, and portfolio purposes.
+[SecureID – GitHub Repository](https://github.com/MandalaMukesh04/mukesh-secureid?utm_source=chatgpt.com)
 
+---
 
-One small suggestion: remove the current README content completely, paste this entire content, and commit it with:
+# 📜 License
+
+This project was developed for educational, academic, and portfolio purposes.
+
+The application demonstrates practical implementation of secure authentication concepts including password hashing, OTP verification, session-based authentication, and Multi-Factor Authentication.
+
+````
+
+After pasting, run these commands:
 
 ```bash
 git add README.md
-git commit -m "Update project documentation"
+git commit -m "Update SecureID project documentation"
 git push origin main
+````
+
+
